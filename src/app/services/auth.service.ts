@@ -26,6 +26,12 @@ export class AuthService {
     return this.auth('register', data);
   }
 
+  checkLogin() {
+    return this.http.get(`${this.api}/checkLogin`, {
+      headers: { authorization: `Bearer ${this.token}` },
+    });
+  }
+
   get token() {
     return localStorage.getItem('token');
   }
